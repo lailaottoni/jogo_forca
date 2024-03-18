@@ -11,7 +11,7 @@
 1,hipopotamo
 2,brasil
 2,argentina
-2,boliva
+2,bolivia
 2,inglaterra
 2,noruega
 2,irlanda

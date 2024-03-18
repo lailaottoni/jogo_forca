@@ -14,7 +14,7 @@ typedef struct
 
 }regreport;
 
-/* imprime a forca*/
+
 void print_forca(int x)
 {
     
@@ -109,7 +109,7 @@ void print_forca(int x)
         
 }
 
-/*IMPRIME MENUS***/
+
 void principal_menu()
 { 
     printf("\n");
@@ -194,7 +194,7 @@ int main(void)
     principal_menu();
     printf("\n");
     scanf("%d", &choice);
-    while (choice != 0) /* NAVEGANDO MENU PRINCIPAL*/
+    while (choice != 0)
     {
         if( choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 0)
         {
@@ -203,7 +203,7 @@ int main(void)
 
         switch (choice) 
         {
-            case 1: /* ESCOLHA DA DIFICULDADE*/
+            case 1:
 
                 dificult = 0;
 
@@ -240,7 +240,7 @@ int main(void)
 
             break;
 
-            case 2: /*ESCOLHENDO O TEMA */
+            case 2: 
 
                 theme = 0;
 
@@ -285,14 +285,9 @@ int main(void)
                 
                 printf("Tema escolhido com sucesso\n\n");
 
-                for(i=0;i<10;i++)
-                {
-                    printf("palavra: %s\n", words[i]);
-                }
-
             break;
 
-            case 3: /* COMEÇANDO O JOGO */
+            case 3: 
 
                 if(attempts == 0 || choice3 == 0)
                 {
@@ -307,7 +302,7 @@ int main(void)
                     win = 0;
                     defeat = 0;
 
-                    choiceword(words, chosenword); /* ESCOLHENDO A PALAVRA*/
+                    choiceword(words, chosenword);
                     
                     printf("\n _________________________________\n");
                     printf("|                                 |\n");
@@ -342,8 +337,6 @@ int main(void)
                     printf("| >> A palavra tem: %ld letras <<   |\n", strlen(chosenword));
                     printf("|_________________________________|\n");
 
-
-                    /*COLOCANDO OS '_'*/
                     for(i = 0; i < strlen(chosenword); i++)
                     {
                         formation[i]='_';
@@ -361,9 +354,8 @@ int main(void)
                     scanf(" %c", &letter);
                     while(out == 0 && same == 0) /* JOGANDO A FOCA  */
                     {
-                        tag = 0; /*VERIFICA AS LETRAS*/
-                    
-                        for(i = 0; i < strlen(chosenword); i++) /*SE A LETRA FOR IGUAL COLOCA NO VETOR EM FORMAÇÃO*/
+                        tag = 0; 
+                        for(i = 0; i < strlen(chosenword); i++)
                         {
                             
                             if(tolower(letter) == chosenword[i])
@@ -373,7 +365,7 @@ int main(void)
                             }
                         }
 
-                        if(tag == 0) /*SE NÃO TEM A LETRA COLOCA NO VETOR JÁ FOI*/
+                        if(tag == 0)
                         {
                             gone[k]= tolower(letter);
                             k= k + 1;
@@ -383,7 +375,7 @@ int main(void)
 
                             errors = errors + 1;
 
-                            switch (attempts) /*TRATANDO AS != DIFICULDADES*/
+                            switch (attempts)
                             {
                                 case 6:
                               
@@ -426,18 +418,18 @@ int main(void)
                         }
                         printf("\n\n");
 
-                        if(errors == attempts) /* CONTROLANDO A SAÍDA */
+                        if(errors == attempts)
                         {
                             out = 1;
-                            defeat = defeat + 1; /*É DERROTADO QUANDO ACABA AS TENTATIVAS, NÃO POR CHUTE ERRADO*/
+                            defeat = defeat + 1;
                         }
 
-                        if( strcasecmp(formation,chosenword) == 0) /* CONTROLANDO QNDO OS VETORES SÃO IGUAIS*/
+                        if( strcasecmp(formation,chosenword) == 0)
                         {
                             same = 1;
                         }
 
-                        if(out != 1 && same != 1) /* NÃO ACABOU AS TENTATIVAS E  NÃO COMPLETOU O VETOR FORMAÇÃO */
+                        if(out != 1 && same != 1)
                         {
                             printf("\n>> Dejesa Chutar? 1-SIM / 2-Não\n\n");
                             scanf("%d", &x);
@@ -452,7 +444,7 @@ int main(void)
                                     printf("\nvocê acertou!!! \n");
                                     printf("Número de erros: %d\n", errors);
                                     out = 1;
-                                    win = win + 1; /* VITORIA POR CHUTE */
+                                    win = win + 1; 
                                 }
                                 else
                                 {
@@ -485,7 +477,7 @@ int main(void)
                         {
                             printf("\nvocê acertou!!! \n");
                             printf("Número de erros: %d\n", errors);
-                            win = win + 1; /* VITÓRIA POR COMPLETAR A PALAVRA ANTES DO LIMITE DE TENTATIVAS*/
+                            win = win + 1;
                         } 
 
                     }
